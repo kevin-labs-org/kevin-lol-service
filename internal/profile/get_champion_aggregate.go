@@ -11,5 +11,5 @@ type GetChampionAggregateResponse struct {
 }
 
 func (s *Service) GetChampionAggregate(ctx context.Context, req GetChampionAggregateRequest) (GetChampionAggregateResponse, error) {
-	panic("not implemented")
+	return GetChampionAggregateResponse{}, nil
 }

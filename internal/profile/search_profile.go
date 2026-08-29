@@ -24,7 +24,7 @@ func (s *Service) SearchProfile(ctx context.Context, req SearchProfileRequest) (
 		return SearchProfileResponse{}, nil
 	}
 
-	puuidList := make([]string, len(results))
+	puuidList := make([]string, 0, len(results))
 	for _, result := range results {
 		puuidList = append(puuidList, result.PUUID)
 	}

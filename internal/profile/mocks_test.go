@@ -121,6 +121,76 @@ func (_c *MockRiotClient_GetAccountByRiotID_Call) RunAndReturn(run func(ctx cont
 	return _c
 }
 
+// GetAccountByPUUID provides a mock function for the type MockRiotClient
+func (_mock *MockRiotClient) GetAccountByPUUID(ctx context.Context, region string, puuid string) (*riot.Account, error) {
+	ret := _mock.Called(ctx, region, puuid)
+
+	if len(ret) == 0 {
+		panic("no return value specified for GetAccountByPUUID")
+	}
+
+	var r0 *riot.Account
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string) (*riot.Account, error)); ok {
+		return returnFunc(ctx, region, puuid)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, string, string) *riot.Account); ok {
+		r0 = returnFunc(ctx, region, puuid)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*riot.Account)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, string, string) error); ok {
+		r1 = returnFunc(ctx, region, puuid)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockRiotClient_GetAccountByPUUID_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'GetAccountByPUUID'
+type MockRiotClient_GetAccountByPUUID_Call struct {
+	*mock.Call
+}
+
+// GetAccountByPUUID is a helper method to define mock.On call
+//   - ctx context.Context
+//   - region string
+//   - puuid string
+func (_e *MockRiotClient_Expecter) GetAccountByPUUID(ctx any, region any, puuid any) *MockRiotClient_GetAccountByPUUID_Call {
+	return &MockRiotClient_GetAccountByPUUID_Call{Call: _e.mock.On("GetAccountByPUUID", ctx, region, puuid)}
+}
+
+func (_c *MockRiotClient_GetAccountByPUUID_Call) Run(run func(ctx context.Context, region string, puuid string)) *MockRiotClient_GetAccountByPUUID_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 string
+		if args[2] != nil {
+			arg2 = args[2].(string)
+		}
+		run(arg0, arg1, arg2)
+	})
+	return _c
+}
+
+func (_c *MockRiotClient_GetAccountByPUUID_Call) Return(account *riot.Account, err error) *MockRiotClient_GetAccountByPUUID_Call {
+	_c.Call.Return(account, err)
+	return _c
+}
+
+func (_c *MockRiotClient_GetAccountByPUUID_Call) RunAndReturn(run func(ctx context.Context, region string, puuid string) (*riot.Account, error)) *MockRiotClient_GetAccountByPUUID_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetLeagueEntriesByPUUID provides a mock function for the type MockRiotClient
 func (_mock *MockRiotClient) GetLeagueEntriesByPUUID(ctx context.Context, region string, puuid string) (riot.LeagueList, error) {
 	ret := _mock.Called(ctx, region, puuid)
