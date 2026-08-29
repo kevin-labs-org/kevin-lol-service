@@ -2,9 +2,11 @@ package profile
 
 import (
 	"context"
+	"errors"
 	"strconv"
 	"time"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/rank1zen/kevin/internal/riot"
 	"github.com/rank1zen/kevin/internal/store"
 )
@@ -27,8 +29,8 @@ type GetProfileResponse struct {
 
 func (s *Service) GetProfile(ctx context.Context, req GetProfileRequest) (GetProfileResponse, error) {
 	summoner, err := s.store.GetSummonerByRegionNameTag(ctx, req.Region, req.Name, req.Tag)
-	if err != nil {
-		account, err := s.riot.Account.GetAccountByRiotID(ctx, req.Region, req.Name, req.Tag)
+	if errors.Is(err, pgx.ErrNoRows) {
+		account, err := s.riotClient.GetAccountByRiotID(ctx, req.Region, req.Name, req.Tag)
 		if err != nil {
 			return GetProfileResponse{}, err
 		}
@@ -57,14 +59,14 @@ func (s *Service) GetProfile(ctx context.Context, req GetProfileRequest) (GetPro
 }
 
 func (s *Service) firstVisitProfile(ctx context.Context, region, name, tag, puuid string) (GetProfileResponse, error) {
-	riotSummoner, err := s.riot.Summoner.GetSummoner(ctx, "NA1", puuid)
+	riotSummoner, err := s.riotClient.GetSummoner(ctx, "NA1", puuid)
 	if err != nil {
 		return GetProfileResponse{}, err
 	}
 
 	summonerUpdateTS := time.Now()
 
-	riotLeague, err := s.riot.League.GetLeagueEntriesByPUUID(ctx, "NA1", puuid)
+	riotLeague, err := s.riotClient.GetLeagueEntriesByPUUID(ctx, "NA1", puuid)
 	if err != nil {
 		return GetProfileResponse{}, err
 	}
@@ -113,7 +115,7 @@ func (s *Service) firstVisitProfile(ctx context.Context, region, name, tag, puui
 
 	}
 
-	dbRank, err := s.store.CreateRank(ctx, *createRank)
+	dbRank, err := inTx.CreateRank(ctx, *createRank)
 	if err != nil {
 		return GetProfileResponse{}, err
 	}

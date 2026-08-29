@@ -12,18 +12,17 @@ import (
 )
 
 type Service struct {
-	riot *riot.Client
-
-	store Store
+	riotClient RiotClient
+	store      Store
 }
 
 func NewService(
-	riot *riot.Client,
+	riotClient RiotClient,
 	store Store,
 ) *Service {
 	return &Service{
-		riot:  riot,
-		store: store,
+		riotClient: riotClient,
+		store:      store,
 	}
 }
 
@@ -132,4 +131,20 @@ func (s *ServiceStore) GetParticipantByPUUIDAndMatchIDs(ctx context.Context, puu
 
 func (s *ServiceStore) AggregateAverageParticipantForChampionIDByPUUID(ctx context.Context, puuid string) ([]*store.AggregateAverageParticipantForChampionID, error) {
 	return store.NewParticipantStore(s.tx).AggregateAverageParticipantForChampionIDByPUUID(ctx, puuid)
+}
+
+type ServiceRiotClient struct {
+	riotClient *riot.Client
+}
+
+func (s *ServiceRiotClient) GetAccountByRiotID(ctx context.Context, region string, name string, tag string) (*riot.Account, error) {
+	return s.riotClient.Account.GetAccountByRiotID(ctx, region, name, tag)
+}
+
+func (s *ServiceRiotClient) GetSummoner(ctx context.Context, region string, puuid string) (*riot.Summoner, error) {
+	return s.riotClient.Summoner.GetSummoner(ctx, region, puuid)
+}
+
+func (s *ServiceRiotClient) GetLeagueEntriesByPUUID(ctx context.Context, region string, puuid string) (riot.LeagueList, error) {
+	return s.riotClient.League.GetLeagueEntriesByPUUID(ctx, region, puuid)
 }
