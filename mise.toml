@@ -4,6 +4,7 @@ buf = "latest"
 "cargo:rustywind" = "latest"
 go = "1.27"
 golangci-lint = "latest"
+mockery = "latest"
 
 [env]
 # Application settings

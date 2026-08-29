@@ -113,7 +113,7 @@ func (s *Service) firstVisitProfile(ctx context.Context, region, name, tag, puui
 
 	}
 
-	dbRank, err := s.rankStore.CreateRank(ctx, *createRank)
+	dbRank, err := s.store.CreateRank(ctx, *createRank)
 	if err != nil {
 		return GetProfileResponse{}, err
 	}

@@ -30,11 +30,4 @@ type Match struct {
 	Date     time.Time
 	Duration time.Duration
 	Win      bool
-
-	// RankBefore is the summoner's rank just before the match. A nil value
-	// indicates this no record was taken.
-	RankBefore *RankStatus
-	// RankBefore is the summoner's rank just after the match. A nil value
-	// indicates this no record was taken.
-	RankAfter *RankStatus
 }
