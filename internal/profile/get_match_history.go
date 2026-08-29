@@ -14,10 +14,11 @@ type GetMatchHistoryRequest struct {
 }
 
 type GetMatchHistoryResponse struct {
-	Matches       []Match
+	Matches       []MatchHistory
 	NextPageToken string
 }
 
 func (s *Service) GetMatchHistory(ctx context.Context, req GetMatchHistoryRequest) (GetMatchHistoryResponse, error) {
+	// TODO: hard af to implement
 	panic("not implemented")
 }

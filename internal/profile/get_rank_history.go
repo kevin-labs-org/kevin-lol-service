@@ -12,6 +12,8 @@ type GetRankHistoryRequest struct {
 }
 
 type GetRankHistoryResponse struct {
+	Ranks        []RankHistory
+	TotalResults int
 }
 
 func (s *Service) GetRankHistory(ctx context.Context, req GetRankHistoryRequest) (GetRankHistoryResponse, error) {
