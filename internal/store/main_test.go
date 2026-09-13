@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/rank1zen/kevin/internal/pgtestcontainer"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/pgtestcontainer"
 )
 
 const ExamplePUUID = "44Js96gJP_XRb3GpJwHBbZjGZmW49Asc3_KehdtVKKTrq3MP8KZdeIn_27MRek9FkTD-M4_n81LNqg"

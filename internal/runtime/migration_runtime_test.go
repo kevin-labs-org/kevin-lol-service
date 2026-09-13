@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/jackc/pgx/v5"
-	"github.com/rank1zen/kevin/internal/runtime"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/runtime"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

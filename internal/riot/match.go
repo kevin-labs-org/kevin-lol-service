@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/rank1zen/kevin/internal/riot/internal"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot/internal"
 )
 
 type MatchService service

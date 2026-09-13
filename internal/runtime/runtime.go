@@ -11,7 +11,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/rank1zen/kevin/internal/riot"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot"
 )
 
 type Runtime struct {

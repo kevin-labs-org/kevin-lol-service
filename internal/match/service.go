@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/rank1zen/kevin/internal/riot"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot"
 )
 
 type MatchService struct {
