@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package kevin.lolservice.v1;
+
+service LadderService {
+  rpc GetSoloQLadder(GetSoloQLadderRequest) returns (GetSoloQLadderResponse) {}
+}
+
+message GetSoloQLadderRequest {
+  string region = 1;
+}
+
+message GetSoloQLadderResponse {
+  repeated LadderEntry entries = 1;
+}
+
+message LadderEntry {
+  int32 ladder_position = 1;
+  string name = 2;
+  string tag = 3;
+  string puuid = 4;
+  Rank rank = 5;
+}
+
+message Rank {
+  string tier = 1;
+  string rank = 2;
+  int32 league_points = 3;
+}
