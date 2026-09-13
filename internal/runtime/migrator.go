@@ -6,7 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/tern/v2/migrate"
-	"github.com/rank1zen/kevin/migrations"
+	"github.com/kevin-labs-org/kevin-lol-service/migrations"
 )
 
 func initializeMigrator(ctx context.Context, cfg Config, pgxConn *pgx.Conn) (*migrate.Migrator, error) {

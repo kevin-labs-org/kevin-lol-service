@@ -3,7 +3,7 @@ package runtime_test
 import (
 	"testing"
 
-	"github.com/rank1zen/kevin/internal/runtime"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/runtime"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/rank1zen/kevin/internal/riot"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot"
 	"github.com/stretchr/testify/assert"
 )
 

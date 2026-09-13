@@ -1,4 +1,4 @@
-module github.com/rank1zen/kevin
+module github.com/kevin-labs-org/kevin-lol-service
 
 go 1.27
 

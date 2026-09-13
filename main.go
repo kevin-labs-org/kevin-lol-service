@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/rank1zen/kevin/cmd"
+	"github.com/kevin-labs-org/kevin-lol-service/cmd"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/jackc/tern/v2/migrate"
-	"github.com/rank1zen/kevin/migrations"
+	"github.com/kevin-labs-org/kevin-lol-service/migrations"
 	pg "github.com/testcontainers/testcontainers-go/modules/postgres"
 )
 

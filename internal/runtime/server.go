@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/rank1zen/kevin/internal/profile"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/profile"
 )
 
 func initializeServer(cfg Config) *http.Server {

@@ -1,7 +1,7 @@
 package profile
 
 import (
-	"github.com/rank1zen/kevin/internal/riot"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot"
 )
 
 type Service struct {

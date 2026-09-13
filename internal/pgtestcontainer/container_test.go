@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/rank1zen/kevin/internal/pgtestcontainer"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/pgtestcontainer"
 )
 
 var DefaultPGInstance *pgtestcontainer.PGInstance

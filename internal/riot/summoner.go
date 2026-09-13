@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/rank1zen/kevin/internal/riot/internal"
+	"github.com/kevin-labs-org/kevin-lol-service/internal/riot/internal"
 )
 
 type SummonerService service
